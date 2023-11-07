@@ -2,7 +2,7 @@
 
 ## Exercises
 
-- [ ] [AOC 2015](exercies/aoc_2015.md)
+- [ ] [AOC 2015](exercises/aoc_2015.md)
 
   - [ ] Day 1
 
