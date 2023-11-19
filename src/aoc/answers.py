@@ -1,18 +1,30 @@
-def path(instructions):
-    floor = 0  # The floor setted as 0
-    for i in instructions:  # For loop is created to iterate through each item
+PUZZLE_INPUT_PATH = "/home/a.belo/personal/STAS/first_repo/exercises/aoc_puzzle_input/"
+
+
+def find_floor_num(instructions):
+    floor = 0
+    for i in instructions:
         if i == "(":
-            floor += 1  # "(" is adding 1 to result
+            floor += 1
         elif i == ")":
-            floor -= 1  # opposite shit
+            floor -= 1
         else:
-            print(
-                "Only ') or '(' is allowed, hoe-hoe-hoe!"
-            )  # Shows that incorrect item is printed
-    return floor  # returning our result
+            print("Only ') or '(' is allowed, hoe-hoe-hoe!")
+    return floor
+
+
+def belo_find_floor_room(instructions):
+    """
+    Lookup:
+        - Ternary operator
+        - Generators
+        - Exceptions
+    """
+    return sum((1 if i == "(" else -1) for i in instructions)
 
 
 if __name__ == "__main__":
-    instructions = input("Ho-ho-ho! Where the fuck am i supposed to go? ")
-    res = path(instructions)
-    print(res)  # Displays result on the screen
+    with open(PUZZLE_INPUT_PATH + "2015_1", "r") as f:
+        instructions = f.readline().strip()
+        res = find_floor_num(instructions)
+        print(res)
